@@ -24,7 +24,7 @@
                 <thead>
                     <tr>
                         <th>
-                            <button (click)='toggleImage()' class='btn btn-primary'>{{ showImage ? 'Show' : 'Show' }} Image</button>
+                            <button (click)='toggleImage()' class='btn btn-primary'>{{ showImage ? 'Hide' : 'Show' }} Image</button>
                         </th>
                         <th>Product</th>
                         <th>Code</th>
@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of products | productFilter: listFilter'>
                         <td><img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName | uppercase' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
                         <td>{{ product.productName }} </td>
                         <td>{{ product.productCode | lowercase}}</td>
