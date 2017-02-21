@@ -1,3 +1,9 @@
+Setup:
+
+1 - git init
+2 - git remote add origin https://github.com/darnolf/APM.git
+3 - git pull origin master
+
 1) Open a command prompt in the project's root directory (APM)
 
 2) Type: `npm install`
