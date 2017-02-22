@@ -15,24 +15,25 @@ export class ProductListComponent implements OnInit {
     showImage: boolean = false;
     listFilter: string;
     products: IProduct[];
+    errorMessage: string;
 
     constructor(private _productService: ProductService) {
     
-    }
-    
+    } 
+
     toggleImage(): void{
         this.showImage = !this.showImage;
     }
     
-    ngOnInit(): void{
-        this.products = this._productService.getProducts();
+    ngOnInit(): void {
+        this._productService.getProducts()
+                .subscribe(products => this.products = products,
+                           error => this.errorMessage = <any>error);
     }
     
     onRatingCLicked(message: string): void{
         this.pageTitle = 'Product List: ' + message;
     }
-
-
 }
 
 // Service Constructor Full Pattern
